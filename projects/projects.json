@@ -3,7 +3,7 @@
     "name": "EEG Seizure Detection Project",
     "desc": "Developed a cutting-edge seizure detection algorithm using Machine Learning, Deep Learning, Support Vector Machines (SVM), and Artificial Neural Networks (ANN), applying Python and MATLAB.",
     "image": "notystackandroid",
-    "category": "DevOps",
+    "category": "Machine Learning",
     "links": {
       "view": "https://github.com/engineerviv/EEG-Seizure-Detection",
       "code": "https://github.com/engineerviv/EEG-Seizure-Detection"
@@ -13,7 +13,7 @@
     "name": "FAQ Chatbot for Faculty Support Project",
     "desc": "Designed and developed an advanced FAQ chatbot system to enhance faculty support, utilizing natural language processing, Google Workspace, and LLMs.",
     "image": "sppuprepandroid",
-    "category": "DevOps",
+    "category": "Machine Learning",
     "links": {
       "view": "https://github.com/engineerviv/CSP572",
       "code": "https://github.com/engineerviv/CSP572"
