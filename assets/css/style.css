@@ -17,7 +17,8 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  background: #f7f7f7;
+  /* background: #f7f7f7; */
+  background: #84fc90;
   font-family: "Poppins", sans-serif;
 }
 
