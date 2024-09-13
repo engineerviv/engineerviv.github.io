@@ -17,8 +17,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  /* background: #f7f7f7; */
-  background: #FFE194;
+  background: #f7f7f7;
   font-family: "Poppins", sans-serif;
 }
 
@@ -535,8 +534,7 @@ header .navbar ul li a:hover {
 
 /* education section starts */
 .education {
-  /* background: #e5ecfb; */
-  background: #F7DCEC;
+  background: #e5ecfb;
   min-height: 80vh;
 }
 .education .qoute {
@@ -644,8 +642,7 @@ header .navbar ul li a:hover {
 /* work section starts */
 .work {
   /* background: #010124; */
-  /* background: linear-gradient(to bottom, #000031, #00002c); */
-  background: linear-gradient(to bottom, #FFF1DE, #FFF1DE);
+  background: linear-gradient(to bottom, #000031, #00002c);
 }
 .work h2 {
   color: #fff;
