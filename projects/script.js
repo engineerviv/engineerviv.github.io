@@ -20,7 +20,7 @@ $(document).ready(function () {
 document.addEventListener('visibilitychange',
     function () {
         if (document.visibilityState === "visible") {
-            document.title = "Projects | Portfolio Jigar Sable";
+            document.title = "Projects | Portfolio Vivian Jacob Varghese";
             $("#favicon").attr("href", "/assets/images/favicon.png");
         }
         else {
