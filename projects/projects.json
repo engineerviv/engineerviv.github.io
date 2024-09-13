@@ -13,10 +13,20 @@
     "name": "FAQ Chatbot for Faculty Support Project",
     "desc": "Designed and developed an advanced FAQ chatbot system to enhance faculty support, utilizing natural language processing, Google Workspace, and LLMs.",
     "image": "chatbot",
-    "category": "devops",
+    "category": "machine-learning",
     "links": {
       "view": "https://github.com/engineerviv/CSP572",
       "code": "https://github.com/engineerviv/CSP572"
+    }
+  },
+  {
+    "name": "Cloud Monitoring App",
+    "desc": "A cloud monitoring app for AWS that provides real-time insights into CPU and memory utilization across AWS infrastructure.",
+    "image": "cloudmonitoring",
+    "category": "devops",
+    "links": {
+      "view": "https://github.com/engineerviv/cloud-monitoring-app",
+      "code": "https://github.com/engineerviv/cloud-monitoring-app"
     }
   }
 ]
