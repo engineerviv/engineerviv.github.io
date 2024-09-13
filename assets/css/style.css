@@ -18,7 +18,7 @@ html {
 }
 body {
   /* background: #f7f7f7; */
-  background: #84fc90;
+  background: #FFE194;
   font-family: "Poppins", sans-serif;
 }
 
@@ -347,7 +347,7 @@ header .navbar ul li a:hover {
 
 /* about section starts */
 .about {
-  background: rgb(255, 255, 255);
+  background: rgb(163, 207, 167);
 }
 .about .row {
   display: flex;
@@ -535,7 +535,8 @@ header .navbar ul li a:hover {
 
 /* education section starts */
 .education {
-  background: #e5ecfb;
+  /* background: #e5ecfb; */
+  background: #F7DCEC;
   min-height: 80vh;
 }
 .education .qoute {
@@ -643,7 +644,8 @@ header .navbar ul li a:hover {
 /* work section starts */
 .work {
   /* background: #010124; */
-  background: linear-gradient(to bottom, #000031, #00002c);
+  /* background: linear-gradient(to bottom, #000031, #00002c); */
+  background: linear-gradient(to bottom, #FFF1DE, #FFF1DE);
 }
 .work h2 {
   color: #fff;
