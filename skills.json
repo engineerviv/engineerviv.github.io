@@ -1,59 +1,19 @@
 [
     {
-        "name": "Bootstrap",
-        "icon": "https://img.icons8.com/color/48/000000/bootstrap.png"
-    },
-    {
-        "name": "JavaScript",
-        "icon": "https://img.icons8.com/color/48/000000/javascript--v1.png"
-    },
-    {
-        "name": "Java",
-        "icon": "https://img.icons8.com/color/48/000000/java-coffee-cup-logo--v1.png"
-    },
-    {
-        "name": "Python",
-        "icon": "https://img.icons8.com/color/48/000000/python--v1.png"
-    },
-    {
-        "name": "MongoDB",
-        "icon": "https://img.icons8.com/color/48/000000/mongodb.png"
-    },
-    {
-        "name": "MySQL",
-        "icon": "https://img.icons8.com/color/48/000000/mysql-logo.png"
-    },
-    {
-        "name": "PostgreSQL",
-        "icon": "https://img.icons8.com/color/48/000000/postgreesql.png"
-    },
-    {
         "name": "AWS",
         "icon": "https://img.icons8.com/color/48/000000/amazon-web-services.png"
-    },
-    {
-        "name": "GitHub",
-        "icon": "https://img.icons8.com/glyph-neue/48/ffffff/github.png"
     },
     {
         "name": "Azure",
         "icon": "https://img.icons8.com/fluency/48/000000/azure-1.png"
     },
     {
-        "name": "R",
-        "icon": "https://img.icons8.com/fluency/48/r-project.png"
+        "name": "Python",
+        "icon": "https://img.icons8.com/color/48/000000/python--v1.png"
     },
     {
         "name": "BASH",
         "icon": "https://img.icons8.com/color/50/bash.png"
-    },
-    {
-        "name": "PowerShell",
-        "icon": "https://img.icons8.com/fluency/48/powershell.png"
-    },
-    {
-        "name": "ELK",
-        "icon": "https://img.icons8.com/color/50/kibana.png"
     },
     {
         "name": "Terraform",
@@ -66,6 +26,48 @@
     {
         "name": "Docker",
         "icon": "https://img.icons8.com/color/50/docker.png"
+    },
+    {
+        "name": "GitHub",
+        "icon": "https://img.icons8.com/glyph-neue/48/ffffff/github.png"
+    },
+    {
+        "name": "MySQL",
+        "icon": "https://img.icons8.com/color/48/000000/mysql-logo.png"
+    },
+    {
+        "name": "PostgreSQL",
+        "icon": "https://img.icons8.com/color/48/000000/postgreesql.png"
+    },
+    {
+        "name": "Bootstrap",
+        "icon": "https://img.icons8.com/color/48/000000/bootstrap.png"
+    },
+    {
+        "name": "JavaScript",
+        "icon": "https://img.icons8.com/color/48/000000/javascript--v1.png"
+    },
+    {
+        "name": "Java",
+        "icon": "https://img.icons8.com/color/48/000000/java-coffee-cup-logo--v1.png"
+    },
+
+    {
+        "name": "MongoDB",
+        "icon": "https://img.icons8.com/color/48/000000/mongodb.png"
+    },
+    {
+        "name": "R",
+        "icon": "https://img.icons8.com/fluency/48/r-project.png"
+    },
+
+    {
+        "name": "PowerShell",
+        "icon": "https://img.icons8.com/fluency/48/powershell.png"
+    },
+    {
+        "name": "ELK",
+        "icon": "https://img.icons8.com/color/50/kibana.png"
     },
     {
         "name": "Tableau",
