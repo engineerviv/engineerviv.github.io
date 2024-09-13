@@ -34,5 +34,53 @@
     {
         "name": "GitHub",
         "icon": "https://img.icons8.com/glyph-neue/48/ffffff/github.png"
+    },
+    {
+        "name": "Microsoft Azure",
+        "icon": "https://img.icons8.com/fluency/48/000000/azure-1.png"
+    },
+    {
+        "name": "R",
+        "icon": "https://img.icons8.com/fluency/48/r-project.png"
+    },
+    {
+        "name": "BASH",
+        "icon": "https://img.icons8.com/color/50/bash.png"
+    },
+    {
+        "name": "PowerShell",
+        "icon": "https://img.icons8.com/fluency/48/powershell.png"
+    },
+    {
+        "name": "ELK",
+        "icon": "https://img.icons8.com/color/50/kibana.png"
+    },
+    {
+        "name": "Terraform",
+        "icon": "https://img.icons8.com/color/50/terraform.png"
+    },
+    {
+        "name": "Kubernetes",
+        "icon": "https://img.icons8.com/color/50/kubernetes.png"
+    },
+    {
+        "name": "Docker",
+        "icon": "https://img.icons8.com/color/50/docker.png"
+    },
+    {
+        "name": "Tableau",
+        "icon": "https://img.icons8.com/color/50/tableau-software.png"
+    },
+    {
+        "name": "Power BI",
+        "icon": "https://img.icons8.com/fluency/48/power-bi-2021.png"
+    },
+    {
+        "name": "JIRA",
+        "icon": "https://img.icons8.com/color/50/jira.png"
+    },
+    {
+        "name": "Confluence",
+        "icon": "https://img.icons8.com/color/50/confluence--v2.png"
     }
 ]
