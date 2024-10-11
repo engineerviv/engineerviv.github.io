@@ -28,6 +28,18 @@
         "icon": "https://img.icons8.com/color/50/docker.png"
     },
     {
+        "name": "Jenkins",
+        "icon": "https://img.icons8.com/color/50/jenkins.png"
+    },
+    {
+        "name": "Ansible",
+        "icon": "https://img.icons8.com/fluency/48/ansible.png"
+    },
+    {
+        "name": "GitLab",
+        "icon": "https://img.icons8.com/color/50/gitlab.png"
+    },
+    {
         "name": "GitHub",
         "icon": "https://img.icons8.com/glyph-neue/48/ffffff/github.png"
     },
