@@ -10,17 +10,12 @@
 
     { "name": "Python",        "icon": "https://img.icons8.com/color/48/000000/python--v1.png",         "category": "Programming" },
     { "name": "FastAPI",       "icon": "https://img.icons8.com/color/48/fastapi.png",                   "category": "Programming" },
-    { "name": "Java",          "icon": "https://img.icons8.com/color/48/000000/java-coffee-cup-logo--v1.png", "category": "Programming" },
-    { "name": "Scala",         "icon": "https://img.icons8.com/color/48/scala.png",                     "category": "Programming" },
     { "name": "BASH",          "icon": "https://img.icons8.com/color/50/bash.png",                      "category": "Programming" },
 
     { "name": "Kubernetes",    "icon": "https://img.icons8.com/color/50/kubernetes.png",                "category": "Infrastructure" },
     { "name": "Docker",        "icon": "https://img.icons8.com/color/50/docker.png",                    "category": "Infrastructure" },
     { "name": "Terraform",     "icon": "https://img.icons8.com/color/50/terraform.png",                 "category": "Infrastructure" },
-    { "name": "Ansible",       "icon": "https://img.icons8.com/fluency/48/ansible.png",                 "category": "Infrastructure" },
 
-    { "name": "Apache Spark",  "icon": "https://img.icons8.com/color/48/apache-spark.png",              "category": "Data Engineering" },
-    { "name": "Kafka",         "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachekafka/apachekafka-original.svg",   "category": "Data Engineering" },
     { "name": "Airflow",       "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apacheairflow/apacheairflow-original.svg", "category": "Data Engineering" },
     { "name": "SageMaker",     "icon": "https://img.icons8.com/color/48/amazon-web-services.png",       "category": "Data Engineering" },
 
@@ -30,9 +25,7 @@
 
     { "name": "GitHub",        "icon": "https://img.icons8.com/glyph-neue/48/ffffff/github.png",        "category": "DevOps & CI/CD" },
     { "name": "GitLab",        "icon": "https://img.icons8.com/color/50/gitlab.png",                    "category": "DevOps & CI/CD" },
-    { "name": "Jenkins",       "icon": "https://img.icons8.com/color/50/jenkins.png",                   "category": "DevOps & CI/CD" },
 
     { "name": "PostgreSQL",    "icon": "https://img.icons8.com/color/48/000000/postgreesql.png",        "category": "Databases" },
-    { "name": "MySQL",         "icon": "https://img.icons8.com/color/48/000000/mysql-logo.png",         "category": "Databases" },
-    { "name": "MongoDB",       "icon": "https://img.icons8.com/color/48/000000/mongodb.png",            "category": "Databases" }
+    { "name": "MySQL",         "icon": "https://img.icons8.com/color/48/000000/mysql-logo.png",         "category": "Databases" }
 ]

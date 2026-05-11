@@ -295,52 +295,50 @@ var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
     gsap.registerPlugin(ScrollTrigger);
 
-    const from = (targets, vars, triggerEl) => {
-        const trigger = triggerEl || (typeof targets === 'string' ? targets : targets[0]);
+    // once:true means elements animate in once and never reverse back to invisible
+    const reveal = (targets, vars, trigger) => {
         gsap.from(targets, {
-            scrollTrigger: { trigger, start: 'top 88%', toggleActions: 'play none none reverse' },
-            opacity: 0, y: 55, duration: 0.8, ease: 'power3.out',
+            scrollTrigger: {
+                trigger: trigger || (typeof targets === 'string' ? targets : targets[0]),
+                start: 'top 92%',
+                once: true,
+            },
+            opacity: 0, y: 50, duration: 0.8, ease: 'power3.out',
             ...vars
         });
     };
 
     /* ABOUT */
     gsap.from('.about .image img', {
-        scrollTrigger: { trigger: '.about', start: 'top 85%', toggleActions: 'play none none reverse' },
-        opacity: 0, x: -70, duration: 1, ease: 'power3.out'
+        scrollTrigger: { trigger: '.about', start: 'top 92%', once: true },
+        opacity: 0, x: -60, duration: 1, ease: 'power3.out'
     });
-    from(['.about .content h3', '.about .content .tag', '.about .content p',
-          '.about .content .box-container', '.about .content .github-card', '.about .content .resumebtn'],
+    reveal(['.about .content h3', '.about .content .tag', '.about .content p',
+            '.about .content .box-container', '.about .content .github-card', '.about .content .resumebtn'],
         { stagger: 0.1 }, '.about');
 
     /* IMPACT */
-    gsap.from('.impact .impact-item', {
-        scrollTrigger: { trigger: '.impact', start: 'top 85%', toggleActions: 'play none none reverse' },
-        opacity: 0, y: 40, duration: 0.6, stagger: 0.08, ease: 'back.out(1.4)'
-    });
+    reveal('.impact .impact-item', { stagger: 0.08, y: 35, ease: 'back.out(1.4)' });
 
     /* SKILLS */
-    from('.skills-radar-wrap', { y: 40, duration: 1 });
-    from('.skills .container', { y: 30, duration: 0.8, delay: 0.2 });
+    reveal('.skills-radar-wrap', { y: 40, duration: 1 });
+    reveal('.skills .container', { y: 30, delay: 0.15 });
 
     /* EDUCATION */
-    gsap.from('.education .box', {
-        scrollTrigger: { trigger: '.education', start: 'top 85%', toggleActions: 'play none none reverse' },
-        opacity: 0, y: 50, duration: 0.7, stagger: 0.2, ease: 'power3.out'
-    });
+    reveal('.education .box', { stagger: 0.2, trigger: '.education' });
 
-    /* EXPERIENCE — timeline items slide in from alternating sides */
-    gsap.from('.experience .timeline .container.right', {
-        scrollTrigger: { trigger: '.experience', start: 'top 80%', toggleActions: 'play none none reverse' },
-        opacity: 0, x: 60, duration: 0.8, stagger: 0.25, ease: 'power3.out'
+    /* EXPERIENCE — slide in from alternating sides */
+    gsap.from('.experience .timeline .container.right .content', {
+        scrollTrigger: { trigger: '.experience', start: 'top 92%', once: true },
+        opacity: 0, x: 50, duration: 0.8, stagger: 0.3, ease: 'power3.out'
     });
-    gsap.from('.experience .timeline .container.left', {
-        scrollTrigger: { trigger: '.experience', start: 'top 80%', toggleActions: 'play none none reverse' },
-        opacity: 0, x: -60, duration: 0.8, stagger: 0.25, ease: 'power3.out'
+    gsap.from('.experience .timeline .container.left .content', {
+        scrollTrigger: { trigger: '.experience', start: 'top 92%', once: true },
+        opacity: 0, x: -50, duration: 0.8, stagger: 0.3, ease: 'power3.out'
     });
 
     /* CONTACT */
-    from(['.contact .container'], { y: 40 });
+    reveal('.contact .container', { y: 40 });
 })();
 
 /* ===== CHART.JS SKILL RADAR ===== */
@@ -350,7 +348,7 @@ var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
 
     const labels = ['Generative AI', 'Cloud', 'Programming', 'Infrastructure',
                     'Data Engineering', 'Observability', 'DevOps & CI/CD', 'Databases'];
-    const scores = [95, 85, 88, 82, 80, 72, 78, 70];
+    const scores = [95, 85, 85, 88, 78, 75, 80, 72];
 
     new Chart(ctx, {
         type: 'radar',
