@@ -257,16 +257,15 @@ function showProjects(projects) {
     });
     // <!-- tilt js effect ends -->
 
-    /* ===== SCROLL REVEAL ANIMATION ===== */
-    const srtop = ScrollReveal({
-        origin: 'top',
-        distance: '80px',
-        duration: 1000,
-        reset: true
-    });
-
-    /* SCROLL PROJECTS */
-    srtop.reveal('.work .box', { interval: 200 });
+    /* ===== GSAP PROJECT CARDS ===== */
+    setTimeout(function () {
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            gsap.from('#work .box', {
+                scrollTrigger: { trigger: '#work', start: 'top 85%' },
+                opacity: 0, y: 50, duration: 0.7, stagger: 0.15, ease: 'power3.out'
+            });
+        }
+    }, 80);
 
 }
 
@@ -291,42 +290,124 @@ var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
 // End of Tawk.to Live Chat
 
 
-/* ===== SCROLL REVEAL ANIMATION ===== */
-const srtop = ScrollReveal({
-    origin: 'top',
-    distance: '80px',
-    duration: 1000,
-    reset: true
-});
+/* ===== GSAP SCROLL ANIMATIONS ===== */
+(function () {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+    gsap.registerPlugin(ScrollTrigger);
 
-/* SCROLL ABOUT */
-srtop.reveal('.about .content h3', { delay: 200 });
-srtop.reveal('.about .content .tag', { delay: 200 });
-srtop.reveal('.about .content p', { delay: 200 });
-srtop.reveal('.about .content .box-container', { delay: 200 });
-srtop.reveal('.about .content .resumebtn', { delay: 200 });
+    const from = (targets, vars, triggerEl) => {
+        const trigger = triggerEl || (typeof targets === 'string' ? targets : targets[0]);
+        gsap.from(targets, {
+            scrollTrigger: { trigger, start: 'top 88%', toggleActions: 'play none none reverse' },
+            opacity: 0, y: 55, duration: 0.8, ease: 'power3.out',
+            ...vars
+        });
+    };
 
+    /* ABOUT */
+    gsap.from('.about .image img', {
+        scrollTrigger: { trigger: '.about', start: 'top 85%', toggleActions: 'play none none reverse' },
+        opacity: 0, x: -70, duration: 1, ease: 'power3.out'
+    });
+    from(['.about .content h3', '.about .content .tag', '.about .content p',
+          '.about .content .box-container', '.about .content .github-card', '.about .content .resumebtn'],
+        { stagger: 0.1 }, '.about');
 
-/* SCROLL SKILLS */
-srtop.reveal('.skills .container', { interval: 200 });
-srtop.reveal('.skills .container .bar', { delay: 400 });
+    /* IMPACT */
+    gsap.from('.impact .impact-item', {
+        scrollTrigger: { trigger: '.impact', start: 'top 85%', toggleActions: 'play none none reverse' },
+        opacity: 0, y: 40, duration: 0.6, stagger: 0.08, ease: 'back.out(1.4)'
+    });
 
-/* SCROLL EDUCATION */
-srtop.reveal('.education .box', { interval: 200 });
+    /* SKILLS */
+    from('.skills-radar-wrap', { y: 40, duration: 1 });
+    from('.skills .container', { y: 30, duration: 0.8, delay: 0.2 });
 
-/* SCROLL IMPACT */
-srtop.reveal('.impact .impact-item', { interval: 100, origin: 'bottom', distance: '40px' });
+    /* EDUCATION */
+    gsap.from('.education .box', {
+        scrollTrigger: { trigger: '.education', start: 'top 85%', toggleActions: 'play none none reverse' },
+        opacity: 0, y: 50, duration: 0.7, stagger: 0.2, ease: 'power3.out'
+    });
 
-/* SCROLL PROJECTS */
-srtop.reveal('.work .box', { interval: 200 });
+    /* EXPERIENCE — timeline items slide in from alternating sides */
+    gsap.from('.experience .timeline .container.right', {
+        scrollTrigger: { trigger: '.experience', start: 'top 80%', toggleActions: 'play none none reverse' },
+        opacity: 0, x: 60, duration: 0.8, stagger: 0.25, ease: 'power3.out'
+    });
+    gsap.from('.experience .timeline .container.left', {
+        scrollTrigger: { trigger: '.experience', start: 'top 80%', toggleActions: 'play none none reverse' },
+        opacity: 0, x: -60, duration: 0.8, stagger: 0.25, ease: 'power3.out'
+    });
 
-/* SCROLL EXPERIENCE */
-srtop.reveal('.experience .timeline', { delay: 400 });
-srtop.reveal('.experience .timeline .container', { interval: 400 });
+    /* CONTACT */
+    from(['.contact .container'], { y: 40 });
+})();
 
-/* SCROLL CONTACT */
-srtop.reveal('.contact .container', { delay: 400 });
-srtop.reveal('.contact .container .form-group', { delay: 400 });
+/* ===== CHART.JS SKILL RADAR ===== */
+(function () {
+    const ctx = document.getElementById('skillRadar');
+    if (!ctx || typeof Chart === 'undefined') return;
+
+    const labels = ['Generative AI', 'Cloud', 'Programming', 'Infrastructure',
+                    'Data Engineering', 'Observability', 'DevOps & CI/CD', 'Databases'];
+    const scores = [95, 85, 88, 82, 80, 72, 78, 70];
+
+    new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels,
+            datasets: [{
+                label: 'Proficiency',
+                data: scores,
+                backgroundColor: 'rgba(0,217,255,0.08)',
+                borderColor: '#00d9ff',
+                borderWidth: 2,
+                pointBackgroundColor: scores.map((_, i) => i % 2 === 0 ? '#00d9ff' : '#a855f7'),
+                pointBorderColor: '#06080f',
+                pointBorderWidth: 2,
+                pointRadius: 5,
+                pointHoverRadius: 8,
+                pointHoverBackgroundColor: '#a855f7',
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            animation: { duration: 1800, easing: 'easeInOutQuart' },
+            scales: {
+                r: {
+                    min: 0, max: 100,
+                    ticks: {
+                        stepSize: 25,
+                        backdropColor: 'transparent',
+                        color: 'rgba(148,163,184,0.5)',
+                        font: { size: 10, family: 'Fira Code' }
+                    },
+                    grid:       { color: 'rgba(0,217,255,0.08)' },
+                    angleLines: { color: 'rgba(0,217,255,0.12)' },
+                    pointLabels: {
+                        color: '#94a3b8',
+                        font: { size: 12, family: 'Space Grotesk', weight: '600' }
+                    }
+                }
+            },
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    backgroundColor: 'rgba(11,14,26,0.95)',
+                    titleColor: '#00d9ff',
+                    bodyColor: '#e2e8f0',
+                    borderColor: 'rgba(0,217,255,0.3)',
+                    borderWidth: 1,
+                    padding: 12,
+                    callbacks: {
+                        label: ctx => ` ${ctx.raw}% proficiency`
+                    }
+                }
+            }
+        }
+    });
+})();
 
 /* ===== IMPACT COUNTERS ===== */
 (function () {

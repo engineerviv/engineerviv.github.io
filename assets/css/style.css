@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap');
 
+/* ===== VIEW TRANSITIONS API ===== */
+@view-transition { navigation: auto; }
+::view-transition-old(root) { animation: 280ms ease both vtOut; }
+::view-transition-new(root) { animation: 320ms ease both vtIn; }
+@keyframes vtOut { to { opacity: 0; transform: translateY(-10px) scale(0.99); } }
+@keyframes vtIn  { from { opacity: 0; transform: translateY(10px) scale(0.99); } }
+
 /* ===== DESIGN TOKENS ===== */
 :root {
   --bg:              #06080f;
@@ -310,11 +317,14 @@ header .navbar ul li a.active {
   pointer-events: none;
 }
 
-.home #particles-js {
+#neural-canvas {
   position: absolute;
   inset: 0;
-  opacity: 0.4;
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 0.55;
   z-index: 0;
+  pointer-events: none;
 }
 
 .home .content {
@@ -1566,6 +1576,70 @@ form .button-area { display: flex; flex-direction: row-reverse; margin-top: 0.5r
   caret-color: var(--cyan);
   text-transform: none;
 }
+/* ===== AVAILABLE FOR WORK BADGE ===== */
+.available-badge {
+  position: fixed;
+  bottom: 13rem;
+  left: 2rem;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.75rem 1.4rem;
+  background: rgba(6,8,15,0.92);
+  border: 1px solid rgba(52,211,153,0.3);
+  border-radius: 10rem;
+  color: #34d399;
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: 'Fira Code', monospace;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 20px rgba(52,211,153,0.1);
+  transition: 0.3s;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.available-badge:hover {
+  border-color: rgba(52,211,153,0.6);
+  box-shadow: 0 0 30px rgba(52,211,153,0.25);
+  transform: translateY(-2px);
+  color: #34d399;
+}
+.avail-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: #34d399;
+  flex-shrink: 0;
+  animation: availPulse 2s ease-in-out infinite;
+}
+@keyframes availPulse {
+  0%, 100% { box-shadow: 0 0 4px #34d399; }
+  50% { box-shadow: 0 0 10px #34d399, 0 0 20px rgba(52,211,153,0.4); }
+}
+@media (max-width: 600px) {
+  .available-badge { bottom: 14rem; left: 1rem; font-size: 1.1rem; padding: 0.6rem 1.1rem; }
+  .avail-text { display: none; }
+  .avail-dot { margin: 0; width: 1rem; height: 1rem; }
+}
+
+/* ===== SKILL RADAR CHART ===== */
+.skills-radar-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem auto 0;
+  max-width: 55rem;
+  aspect-ratio: 1;
+}
+.skills-radar-wrap canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+@media (max-width: 600px) {
+  .skills-radar-wrap { max-width: 32rem; }
+}
+
 #terminal-trigger {
   position: fixed;
   bottom: 7rem;

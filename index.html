@@ -76,7 +76,7 @@
 
 <!-- hero section starts -->
 <section class="home" id="home">
-    <div id="particles-js"></div>
+    <canvas id="neural-canvas"></canvas>
 
     <div class="content">
     <h2>Hi There,<br/> I'm Vivian Jacob <span>Varghese</span></h2>
@@ -211,6 +211,10 @@
 <section class="skills" id="skills">
 
     <h2 class="heading"><i class="fas fa-laptop-code"></i> Skills & <span>Abilities</span></h2>
+
+    <div class="skills-radar-wrap">
+      <canvas id="skillRadar"></canvas>
+    </div>
 
     <div class="container">
           <div id="skillsContainer"></div>
@@ -503,6 +507,12 @@
   </div>
 </div>
 
+<!-- available for work badge -->
+<a href="#contact" class="available-badge" aria-label="Available for work">
+  <span class="avail-dot"></span>
+  <span class="avail-text">Available for Work</span>
+</a>
+
 <!-- terminal trigger button -->
 <button id="terminal-trigger" title="Open terminal  ( ` key )" aria-label="Open terminal"><i class="fas fa-terminal"></i></button>
 
@@ -518,15 +528,18 @@
 <!-- typed.js cdn -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js" integrity="sha512-1KbKusm/hAtkX5FScVR5G36wodIMnVd/aP04af06iyQTkD17szAMGNmxfNH+tEuFp3Og/P5G32L1qEC47CZbUQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<!-- particle.js links -->
-<script src="./assets/js/particles.min.js"></script>
-<script src="./assets/js/app.js"></script>
+<!-- Three.js neural network -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" crossorigin="anonymous"></script>
 
 <!-- vanilla tilt.js links -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<!-- scroll reveal anim -->
-<script src="https://unpkg.com/scrollreveal"></script>
+<!-- GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous"></script>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 
 <script
       type="text/javascript"
@@ -536,6 +549,7 @@
 <!-- ==== ALL MAJOR JAVASCRIPT CDNS ENDS ==== -->
 
 <script src="./assets/js/script.js"></script>
+<script src="./assets/js/neural-net.js"></script>
 
 </body>
 </html>
