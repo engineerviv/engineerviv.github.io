@@ -125,17 +125,18 @@ window.addEventListener('scroll', function () {
     const toggle = document.getElementById('theme-toggle');
     if (!toggle) return;
 
+    // Dark is default; light-mode class activates light theme
     const saved = localStorage.getItem('theme');
-    if (saved === 'dark') {
-        document.body.classList.add('dark');
-        toggle.innerHTML = '<i class="fas fa-sun"></i>';
+    if (saved === 'light') {
+        document.body.classList.add('light-mode');
+        toggle.innerHTML = '<i class="fas fa-moon"></i>';
     }
 
     toggle.addEventListener('click', function () {
-        document.body.classList.toggle('dark');
-        const isDark = document.body.classList.contains('dark');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        toggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        document.body.classList.toggle('light-mode');
+        const isLight = document.body.classList.contains('light-mode');
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        toggle.innerHTML = isLight ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
     });
 })();
 
