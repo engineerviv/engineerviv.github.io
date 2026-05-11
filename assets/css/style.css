@@ -54,6 +54,19 @@ body.light-mode {
   --grid-line:       rgba(0,100,200,0.04);
 }
 
+/* ===== SCROLL REVEAL ===== */
+.sr-item {
+  opacity: 0;
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.sr-up    { transform: translateY(40px); }
+.sr-right { transform: translateX(50px); }
+.sr-left  { transform: translateX(-50px); }
+.sr-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
 /* ===== RESET ===== */
 *, *::before, *::after {
   margin: 0;
