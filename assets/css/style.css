@@ -1554,17 +1554,54 @@ form .button-area {
   font-size: 1.1rem;
 }
 
-/* github stats */
-.github-stats {
-  margin-top: 2.5rem;
+/* github card */
+.github-card {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  padding: 1.6rem 2rem;
+  border-radius: 1rem;
+  background: #0d1117;
+  border: 1px solid #30363d;
+  text-decoration: none;
+  transition: 0.25s;
+  cursor: pointer;
 }
-.github-stats img {
-  border-radius: 0.8rem;
-  height: auto;
-  max-width: 100%;
+.github-card:hover {
+  border-color: #ff7b00;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+.github-card-left i {
+  font-size: 3.2rem;
+  color: #e6edf3;
+}
+.github-card-info {
+  flex: 1;
+}
+.github-card-info h4 {
+  font-size: 1.5rem;
+  color: #58a6ff;
+  font-weight: 600;
+  text-transform: none;
+  margin-bottom: 0.4rem;
+}
+.github-card-info p {
+  font-size: 1.2rem;
+  color: #8b949e;
+  font-family: "Nunito", sans-serif;
+  text-transform: none;
+  margin-top: 0 !important;
+}
+.github-card-arrow i {
+  font-size: 1.6rem;
+  color: #8b949e;
+  transition: 0.2s;
+}
+.github-card:hover .github-card-arrow i {
+  color: #ff7b00;
+  transform: translateX(4px);
 }
 
 /* scroll top starts */
