@@ -20,12 +20,12 @@
     { "name": "Ansible",       "icon": "https://img.icons8.com/fluency/48/ansible.png",                 "category": "Infrastructure" },
 
     { "name": "Apache Spark",  "icon": "https://img.icons8.com/color/48/apache-spark.png",              "category": "Data Engineering" },
-    { "name": "Kafka",         "icon": "https://img.icons8.com/color/48/apache-kafka.png",              "category": "Data Engineering" },
-    { "name": "Airflow",       "icon": "https://img.icons8.com/color/48/airflow.png",                   "category": "Data Engineering" },
+    { "name": "Kafka",         "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachekafka/apachekafka-original.svg",   "category": "Data Engineering" },
+    { "name": "Airflow",       "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apacheairflow/apacheairflow-original.svg", "category": "Data Engineering" },
     { "name": "SageMaker",     "icon": "https://img.icons8.com/color/48/amazon-web-services.png",       "category": "Data Engineering" },
 
     { "name": "Prometheus",    "icon": "https://img.icons8.com/color/48/prometheus-app.png",            "category": "Observability" },
-    { "name": "Datadog",       "icon": "https://img.icons8.com/color/48/datadog.png",                   "category": "Observability" },
+    { "name": "Datadog",       "icon": "https://cdn.simpleicons.org/datadog/632CA6",                     "category": "Observability" },
     { "name": "ELK Stack",     "icon": "https://img.icons8.com/color/50/kibana.png",                    "category": "Observability" },
 
     { "name": "GitHub",        "icon": "https://img.icons8.com/glyph-neue/48/ffffff/github.png",        "category": "DevOps & CI/CD" },
