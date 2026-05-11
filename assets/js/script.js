@@ -31,9 +31,11 @@ $(document).ready(function () {
 
     // smooth scrolling
     $('a[href*="#"]').on('click', function (e) {
+        const href = $(this).attr('href');
+        if (href === '#' || !$(href).length) return;
         e.preventDefault();
         $('html, body').animate({
-            scrollTop: $($(this).attr('href')).offset().top,
+            scrollTop: $(href).offset().top,
         }, 500, 'linear')
     });
 
@@ -71,13 +73,71 @@ document.addEventListener('visibilitychange',
 
 // <!-- typed js effect starts -->
 var typed = new Typed(".typing-text", {
-    strings: ["CI/CD", "Cloud Infrastructure", "Machine Learning", "Data Visualization",  "Artificial Intelligence"],
+    strings: ["Generative AI", "LLM Orchestration", "RAG Pipelines", "Multi-Agent Systems", "AIOps", "Cloud Infrastructure"],
     loop: true,
     typeSpeed: 50,
     backSpeed: 25,
     backDelay: 500,
 });
 // <!-- typed js effect ends -->
+
+/* ===== SCROLL PROGRESS BAR ===== */
+window.addEventListener('scroll', function () {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const progress = (scrollTop / scrollHeight) * 100;
+    document.getElementById('progress-bar').style.width = progress + '%';
+});
+
+/* ===== CUSTOM CURSOR ===== */
+(function () {
+    const dot = document.querySelector('.cursor-dot');
+    const ring = document.querySelector('.cursor-ring');
+    if (!dot || !ring) return;
+
+    let ringX = 0, ringY = 0;
+    let mouseX = 0, mouseY = 0;
+
+    document.addEventListener('mousemove', function (e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        dot.style.left = mouseX + 'px';
+        dot.style.top = mouseY + 'px';
+    });
+
+    function animateRing() {
+        ringX += (mouseX - ringX) * 0.12;
+        ringY += (mouseY - ringY) * 0.12;
+        ring.style.left = ringX + 'px';
+        ring.style.top = ringY + 'px';
+        requestAnimationFrame(animateRing);
+    }
+    animateRing();
+
+    document.querySelectorAll('a, button, .btn, .tilt, .bar').forEach(el => {
+        el.addEventListener('mouseenter', () => ring.classList.add('hovered'));
+        el.addEventListener('mouseleave', () => ring.classList.remove('hovered'));
+    });
+})();
+
+/* ===== DARK MODE TOGGLE ===== */
+(function () {
+    const toggle = document.getElementById('theme-toggle');
+    if (!toggle) return;
+
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+        document.body.classList.add('dark');
+        toggle.innerHTML = '<i class="fas fa-sun"></i>';
+    }
+
+    toggle.addEventListener('click', function () {
+        document.body.classList.toggle('dark');
+        const isDark = document.body.classList.contains('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        toggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+    });
+})();
 
 async function fetchData(type = "skills") {
     let response
@@ -90,27 +150,83 @@ async function fetchData(type = "skills") {
 }
 
 function showSkills(skills) {
-    let skillsContainer = document.getElementById("skillsContainer");
-    let skillHTML = "";
+    const container = document.getElementById("skillsContainer");
+    const groups = {};
     skills.forEach(skill => {
-        skillHTML += `
-        <div class="bar">
+        const cat = skill.category || "Other";
+        if (!groups[cat]) groups[cat] = [];
+        groups[cat].push(skill);
+    });
+
+    let html = "";
+    Object.keys(groups).forEach(cat => {
+        html += `<div class="skill-group">
+          <h3 class="skill-category">${cat}</h3>
+          <div class="skill-items">`;
+        groups[cat].forEach(skill => {
+            html += `<div class="bar">
               <div class="info">
-                <img src=${skill.icon} alt="skill" />
+                <img src="${skill.icon}" alt="${skill.name}" loading="lazy" />
                 <span>${skill.name}</span>
               </div>
-            </div>`
+            </div>`;
+        });
+        html += `</div></div>`;
     });
-    skillsContainer.innerHTML = skillHTML;
+    container.innerHTML = html;
 }
 
+let allProjects = [];
+
+function openModal(project) {
+    document.getElementById('modal-img').src = `/assets/images/projects/${project.image}.png`;
+    document.getElementById('modal-title').textContent = project.name;
+    document.getElementById('modal-desc').textContent = project.desc;
+    document.getElementById('modal-github').href = project.links.code;
+
+    const demoEl = document.getElementById('modal-demo');
+    if (project.links.demo) {
+        demoEl.href = project.links.demo;
+        demoEl.style.display = 'flex';
+    } else {
+        demoEl.style.display = 'none';
+    }
+
+    const tagsEl = document.getElementById('modal-tags');
+    tagsEl.innerHTML = (project.techStack || []).map(t => `<span>${t}</span>`).join('');
+
+    const featuresEl = document.getElementById('modal-features');
+    featuresEl.innerHTML = (project.features || []).map(f => `<li>${f}</li>`).join('');
+
+    document.getElementById('project-modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+
+document.getElementById('modal-close').addEventListener('click', function () {
+    document.getElementById('project-modal').classList.remove('open');
+    document.body.style.overflow = '';
+});
+document.getElementById('project-modal').addEventListener('click', function (e) {
+    if (e.target === this) {
+        this.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+});
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+        document.getElementById('project-modal').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+});
+
 function showProjects(projects) {
+    allProjects = projects;
     let projectsContainer = document.querySelector("#work .box-container");
     let projectHTML = "";
-    projects.slice(0, 10).filter(project => project.category != "android").forEach(project => {
+    projects.slice(0, 10).filter(project => project.category != "android").forEach((project, idx) => {
         projectHTML += `
-        <div class="box tilt">
-      <img draggable="false" src="/assets/images/projects/${project.image}.png" alt="project" />
+        <div class="box tilt" data-project-idx="${idx}" style="cursor:pointer">
+      <img draggable="false" src="/assets/images/projects/${project.image}.png" alt="${project.name}" loading="lazy" />
       <div class="content">
         <div class="tag">
         <h3>${project.name}</h3>
@@ -118,14 +234,21 @@ function showProjects(projects) {
         <div class="desc">
           <p>${project.desc}</p>
           <div class="btns">
-            <a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
-            <a href="${project.links.code}" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
+            <a href="${project.links.view}" class="btn" target="_blank" onclick="event.stopPropagation()"><i class="fas fa-eye"></i> View</a>
+            <a href="${project.links.code}" class="btn" target="_blank" onclick="event.stopPropagation()">Code <i class="fas fa-code"></i></a>
           </div>
         </div>
       </div>
     </div>`
     });
     projectsContainer.innerHTML = projectHTML;
+
+    document.querySelectorAll('#work .box[data-project-idx]').forEach(card => {
+        card.addEventListener('click', function () {
+            const idx = parseInt(this.getAttribute('data-project-idx'));
+            openModal(allProjects[idx]);
+        });
+    });
 
     // <!-- tilt js effect starts -->
     VanillaTilt.init(document.querySelectorAll(".tilt"), {
@@ -154,32 +277,6 @@ fetchData("projects").then(data => {
     showProjects(data);
 });
 
-// <!-- tilt js effect starts -->
-VanillaTilt.init(document.querySelectorAll(".tilt"), {
-    max: 15,
-});
-// <!-- tilt js effect ends -->
-
-
-// disable developer mode
-document.onkeydown = function (e) {
-    if (e.keyCode == 123) {
-        return false;
-    }
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
-        return false;
-    }
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
-        return false;
-    }
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
-        return false;
-    }
-    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
-        return false;
-    }
-}
-
 // Start of Tawk.to Live Chat
 var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
 (function () {
@@ -201,19 +298,6 @@ const srtop = ScrollReveal({
     reset: true
 });
 
-/* SCROLL HOME */
-srtop.reveal('.home .content h3', { delay: 200 });
-srtop.reveal('.home .content p', { delay: 200 });
-srtop.reveal('.home .content .btn', { delay: 200 });
-
-srtop.reveal('.home .image', { delay: 400 });
-srtop.reveal('.home .linkedin', { interval: 600 });
-srtop.reveal('.home .github', { interval: 800 });
-srtop.reveal('.home .twitter', { interval: 1000 });
-srtop.reveal('.home .telegram', { interval: 600 });
-srtop.reveal('.home .instagram', { interval: 600 });
-srtop.reveal('.home .dev', { interval: 600 });
-
 /* SCROLL ABOUT */
 srtop.reveal('.about .content h3', { delay: 200 });
 srtop.reveal('.about .content .tag', { delay: 200 });
@@ -228,6 +312,9 @@ srtop.reveal('.skills .container .bar', { delay: 400 });
 
 /* SCROLL EDUCATION */
 srtop.reveal('.education .box', { interval: 200 });
+
+/* SCROLL CERTIFICATIONS */
+srtop.reveal('.certifications .cert-card', { interval: 150 });
 
 /* SCROLL PROJECTS */
 srtop.reveal('.work .box', { interval: 200 });

@@ -4,22 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="vivian jacob varghese, portfolio, vivian, devops, personal portfolio lifecodes, portfolio design, portfolio website, personal portfolio" />
-    <meta name="description" content="Welcome to Vivian's Portfolio. Software Engineer" />
+    <meta name="description" content="Vivian Jacob Varghese — Senior AI Engineer specializing in Generative AI, LLM orchestration, RAG pipelines, and multi-agent systems. Expert in LangGraph, AWS Bedrock, and distributed AI systems on Kubernetes." />
+    <meta name="keywords" content="Vivian Jacob Varghese, Senior AI Engineer, Generative AI, LLM, RAG pipelines, multi-agent systems, LangGraph, LangChain, AWS Bedrock, AIOps, DevOps, MLOps, Kubernetes, portfolio" />
+    <meta name="author" content="Vivian Jacob Varghese" />
+    <link rel="canonical" href="https://engineerviv.github.io/" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="Vivian Jacob Varghese | Senior AI Engineer" />
+    <meta property="og:description" content="Senior AI Engineer specializing in Generative AI, LLM orchestration, RAG pipelines, and multi-agent systems. Built production-scale AIOps platforms processing 100K+ events/day." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://engineerviv.github.io/" />
+    <meta property="og:image" content="https://engineerviv.github.io/assets/images/hero.jpg" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Vivian Jacob Varghese | Senior AI Engineer" />
+    <meta name="twitter:description" content="Senior AI Engineer specializing in Generative AI, LLM orchestration, and multi-agent systems." />
+    <meta name="twitter:image" content="https://engineerviv.github.io/assets/images/hero.jpg" />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./assets/css/style.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Favicon -->
     <link id='favicon' rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-png">
-    <title>Portfolio | Vivian Jacob Varghese</title>
+    <title>Vivian Jacob Varghese | Senior AI Engineer</title>
 </head>
-<body oncontextmenu="return false">
+<body>
 
+
+<!-- scroll progress bar -->
+<div id="progress-bar"></div>
+
+<!-- custom cursor -->
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
 
 <!-- navbar starts -->
 <header>
-        <a href="/" class="logo"><i class="fas fa-cloud"></i> Vivian</a>
+        <a href="/" class="logo"><i class="fas fa-brain"></i> Vivian</a>
 
         <div id="menu" class="fas fa-bars"></div>
         <nav class="navbar">
@@ -28,11 +48,13 @@
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#education">Education</a></li>
+            <li><a href="#certifications">Certs</a></li>
             <li><a href="#work">Work</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+        <button id="theme-toggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
 </header>
 <!-- navbar ends -->
 
@@ -44,12 +66,17 @@
     <div class="content">
     <h2>Hi There,<br/> I'm Vivian Jacob <span>Varghese</span></h2>
     <p>i am into <span class="typing-text"></span></p>
-    <a href="#about" class="btn"><span>About Me</span>
-      <i class="fas fa-arrow-circle-down"></i>
-    </a>
+    <div class="hero-btns">
+      <a href="#about" class="btn"><span>About Me</span>
+        <i class="fas fa-arrow-circle-down"></i>
+      </a>
+      <a href="https://drive.google.com/file/d/1GqTQQyjCx5Wt_ugwqYgf7_a1_nioQcE-/view" target="_blank" class="btn btn-outline"><span>Resume</span>
+        <i class="fas fa-file-download"></i>
+      </a>
+    </div>
     <div class="socials">
         <ul class="social-icons">
-          <li><a class="linkedin" aria-label="LinkedIn" href="https://www.linkedin.com/in/vivian-jacob-varghese/" target="_blank"><i class="fab fa-linkedin"></i></a></li> 
+          <li><a class="linkedin" aria-label="LinkedIn" href="https://www.linkedin.com/in/vivian-jacob-varghese/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
           <li><a class="github" aria-label="GitHub" href="https://github.com/engineerviv" target="_blank"><i class="fab fa-github"></i></a></li>
         </ul>
       </div>
@@ -68,21 +95,26 @@
     <div class="row">
 
     <div class="image">
-        <img draggable="false" class="tilt" src="./assets/images/profile2.jpeg" alt="">
+        <img draggable="false" class="tilt" src="./assets/images/profile2.jpeg" alt="Vivian Jacob Varghese" loading="lazy">
     </div>
     <div class="content">
-        <h3>I'm Vivian</h3>
-        <span class="tag">Software Engineer</span>
-        
-        <p>I’m a software engineer with expertise in cloud environments, DevOps, Machine Learning and software engineering. I have a passion for building scalable solutions and developing automated systems. </p>
-        
+        <h3>I’m Vivian</h3>
+        <span class="tag">Senior AI Engineer — Generative AI & LLM Systems</span>
+
+        <p>Senior AI Engineer specializing in Generative AI, LLM orchestration, and multi-agent systems. Built production-scale RAG pipelines and autonomous RCA platforms processing 100K+ events/day, reducing MTTR by 65% and alert noise by 60%. Expert in LangGraph, AWS Bedrock (Claude), and distributed AI systems on Kubernetes.</p>
+
         <div class="box-container">
             <div class="box">
               <p><span> email : </span> vivianjacobvarghese@gmail.com</p>
-              <p><span> place : </span> Chicago, Illinois - 60616</p>
+              <p><span> place : </span> Bengaluru, India</p>
             </div>
         </div>
         
+        <div class="github-stats">
+            <img src="https://github-readme-stats.vercel.app/api?username=engineerviv&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="GitHub Stats" loading="lazy" />
+            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=engineerviv&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" loading="lazy" />
+        </div>
+
         <div class="resumebtn">
             <a href="https://drive.google.com/file/d/1GqTQQyjCx5Wt_ugwqYgf7_a1_nioQcE-/view" target="_blank" class="btn"><span>Resume</span>
                 <i class="fas fa-chevron-right"></i>
@@ -100,17 +132,8 @@
     <h2 class="heading"><i class="fas fa-laptop-code"></i> Skills & <span>Abilities</span></h2>
 
     <div class="container">
-          <div class="row" id="skillsContainer">
-
-            <!-- <div class="bar">
-              <div class="info">
-                <img src="https://img.icons8.com/color/48/000000/adobe-xd.png"/>
-                <span>AdobeXD</span>
-              </div>
-            </div> -->
-
-      </div>
-</div>
+          <div id="skillsContainer"></div>
+    </div>
 </section>
 <!-- skills section ends -->
 
@@ -126,7 +149,7 @@
 
     <div class="box">
         <div class="image">
-        <img draggable="false" src="./assets/images/education/Illinois-Institute-Of-Technology-Logo.jpg" alt="">
+        <img draggable="false" src="./assets/images/education/Illinois-Institute-Of-Technology-Logo.jpg" alt="Illinois Institute of Technology" loading="lazy">
         </div>
         <div class="content">
         <h3>Master of Data Science</h3>
@@ -137,7 +160,7 @@
 
     <div class="box">
       <div class="image">
-      <img draggable="false" src="./assets/images/education/Visvesvaraya_Technological_University_logo.png" alt="">
+      <img draggable="false" src="./assets/images/education/Visvesvaraya_Technological_University_logo.png" alt="Visvesvaraya Technological University" loading="lazy">
       </div>
       <div class="content">
       <h3>Bachelor of Engineering in Electronics and Communication Engineering</h3>
@@ -150,6 +173,53 @@
 </section>
 <!-- education section ends -->
 
+
+<!-- certifications section starts -->
+<section class="certifications" id="certifications">
+
+  <h2 class="heading"><i class="fas fa-certificate"></i> Certifi<span>cations</span></h2>
+
+  <div class="cert-container">
+
+    <div class="cert-card">
+      <div class="cert-icon"><i class="fab fa-aws"></i></div>
+      <div class="cert-info">
+        <h3>AWS Certified Solutions Architect</h3>
+        <p class="cert-issuer">Amazon Web Services</p>
+        <a href="#" target="_blank" class="cert-verify">Verify <i class="fas fa-external-link-alt"></i></a>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon"><i class="fab fa-python"></i></div>
+      <div class="cert-info">
+        <h3>Machine Learning Specialization</h3>
+        <p class="cert-issuer">DeepLearning.AI / Coursera</p>
+        <a href="#" target="_blank" class="cert-verify">Verify <i class="fas fa-external-link-alt"></i></a>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon"><i class="fas fa-dharmachakra"></i></div>
+      <div class="cert-info">
+        <h3>Certified Kubernetes Administrator</h3>
+        <p class="cert-issuer">Cloud Native Computing Foundation</p>
+        <a href="#" target="_blank" class="cert-verify">Verify <i class="fas fa-external-link-alt"></i></a>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon"><i class="fas fa-brain"></i></div>
+      <div class="cert-info">
+        <h3>Generative AI with LLMs</h3>
+        <p class="cert-issuer">DeepLearning.AI / Coursera</p>
+        <a href="#" target="_blank" class="cert-verify">Verify <i class="fas fa-external-link-alt"></i></a>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- certifications section ends -->
 
 <!-- work project section starts -->
 <section class="work" id="work">
@@ -179,11 +249,11 @@
     <div class="container right">
       <div class="content">
         <div class="tag">
-          <h2>Capgemini</h2>
+          <h2>EPAM Systems</h2>
         </div>
         <div class="desc">
-            <h3>Devops Consultant</h3>
-            <p>Aug 2021 – Jan 2022</p>
+            <h3>Senior Systems Engineer — Generative AI & LLM</h3>
+            <p>Jun 2025 – Present</p>
         </div>
       </div>
     </div>
@@ -191,23 +261,35 @@
     <div class="container left">
       <div class="content">
         <div class="tag">
-          <h2>Mindtree Ltd.</h2>
+          <h2>Tekcog Inc.</h2>
         </div>
         <div class="desc">
-            <h3>Engineer</h3>
-            <p>Feb 2020 – Aug 2021</p>
+            <h3>Software Engineer (DevOps / MLOps)</h3>
+            <p>Nov 2024 – May 2025</p>
         </div>
       </div>
     </div>
 
     <div class="container right">
+      <div class="content">
+        <div class="tag">
+          <h2>Capgemini</h2>
+        </div>
+        <div class="desc">
+            <h3>Consultant</h3>
+            <p>Aug 2021 – Jan 2022</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container left">
         <div class="content">
           <div class="tag">
             <h2>Mindtree Ltd.</h2>
           </div>
           <div class="desc">
-              <h3>Junior Engineer</h3>
-              <p>April 2018 - Feb 2020</p>
+              <h3>Software Engineer</h3>
+              <p>Jul 2018 – Aug 2021</p>
           </div>
         </div>
       </div>
@@ -282,6 +364,7 @@
           <a href="#about"><i class="fas fa-chevron-circle-right"></i> about</a>
           <a href="#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
           <a href="#education"><i class="fas fa-chevron-circle-right"></i> education</a>
+          <a href="#certifications"><i class="fas fa-chevron-circle-right"></i> certifications</a>
           <a href="#work"><i class="fas fa-chevron-circle-right"></i> work</a>
           <a href="#experience"><i class="fas fa-chevron-circle-right"></i> experience</a>
       </div>
@@ -304,6 +387,24 @@
 </section>
 <!-- footer section ends -->
 
+
+<!-- project detail modal -->
+<div id="project-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Project Details">
+  <div class="modal-card">
+    <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+    <img id="modal-img" src="" alt="Project screenshot" loading="lazy" />
+    <div class="modal-body">
+      <h2 id="modal-title"></h2>
+      <div id="modal-tags" class="modal-tags"></div>
+      <p id="modal-desc"></p>
+      <ul id="modal-features" class="modal-features"></ul>
+      <div class="modal-links">
+        <a id="modal-github" href="#" target="_blank" class="btn"><i class="fab fa-github"></i> <span>GitHub</span></a>
+        <a id="modal-demo" href="#" target="_blank" class="btn btn-demo"><i class="fas fa-external-link-alt"></i> <span>Live Demo</span></a>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- scroll top btn -->
 <a href="#home" aria-label="ScrollTop" class="fas fa-angle-up" id="scroll-top"></a>

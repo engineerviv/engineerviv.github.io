@@ -1,22 +1,38 @@
 [
   {
-    "name": "EEG Seizure Detection Project",
+    "name": "EEG Seizure Detection",
     "desc": "Developed a cutting-edge seizure detection algorithm using Machine Learning, Deep Learning, Support Vector Machines (SVM), and Artificial Neural Networks (ANN), applying Python and MATLAB.",
     "image": "eeg",
     "category": "machine-learning",
+    "techStack": ["Python", "MATLAB", "SVM", "ANN", "Deep Learning", "Signal Processing"],
+    "features": [
+      "Automated seizure detection from raw EEG signals",
+      "SVM and ANN classifiers with comparative analysis",
+      "Feature extraction using bandpass filtering and FFT",
+      "Achieved high sensitivity and specificity on benchmark datasets"
+    ],
     "links": {
       "view": "https://github.com/engineerviv/EEG-Seizure-Detection",
-      "code": "https://github.com/engineerviv/EEG-Seizure-Detection"
+      "code": "https://github.com/engineerviv/EEG-Seizure-Detection",
+      "demo": ""
     }
   },
   {
-    "name": "FAQ Chatbot for Faculty Support Project",
+    "name": "FAQ Chatbot for Faculty Support",
     "desc": "Designed and developed an advanced FAQ chatbot system to enhance faculty support, utilizing natural language processing, Google Workspace, and LLMs.",
     "image": "chatbot",
     "category": "machine-learning",
+    "techStack": ["Python", "LLMs", "NLP", "Google Workspace", "Rasa", "BERT"],
+    "features": [
+      "Intent recognition and entity extraction with BERT-based NLP",
+      "Integration with Google Workspace APIs for dynamic data retrieval",
+      "Multi-turn conversation handling and context retention",
+      "Deployed with REST API backend for real-time faculty queries"
+    ],
     "links": {
       "view": "https://github.com/engineerviv/CSP572",
-      "code": "https://github.com/engineerviv/CSP572"
+      "code": "https://github.com/engineerviv/CSP572",
+      "demo": ""
     }
   },
   {
@@ -24,9 +40,17 @@
     "desc": "A cloud monitoring app for AWS that provides real-time insights into CPU and memory utilization across AWS infrastructure.",
     "image": "cloudmonitoring",
     "category": "devops",
+    "techStack": ["Python", "Flask", "AWS EC2", "CloudWatch", "Docker", "Kubernetes"],
+    "features": [
+      "Real-time CPU and memory utilization dashboards for AWS EC2",
+      "CloudWatch metrics integration with configurable alert thresholds",
+      "Containerized with Docker and deployed on Kubernetes (EKS)",
+      "Auto-scaling policies triggered by resource utilization metrics"
+    ],
     "links": {
       "view": "https://github.com/engineerviv/cloud-monitoring-app",
-      "code": "https://github.com/engineerviv/cloud-monitoring-app"
+      "code": "https://github.com/engineerviv/cloud-monitoring-app",
+      "demo": ""
     }
   }
 ]
