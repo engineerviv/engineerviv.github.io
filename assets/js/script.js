@@ -396,6 +396,79 @@ var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
     });
 })();
 
+/* ===== AMBIENT AUDIO ===== */
+(function () {
+    const btn = document.getElementById('audio-toggle');
+    if (!btn) return;
+
+    let ctx = null, master = null, playing = false;
+
+    function buildAudio() {
+        ctx = new (window.AudioContext || window.webkitAudioContext)();
+
+        // Deep server-hum drone
+        function osc(freq, type, gain) {
+            const o = ctx.createOscillator();
+            const g = ctx.createGain();
+            o.type = type;
+            o.frequency.value = freq;
+            g.gain.value = gain;
+            o.connect(g);
+            o.start();
+            return g;
+        }
+
+        // LFO — slow tremolo on the mid layer
+        const lfo = ctx.createOscillator();
+        const lfoGain = ctx.createGain();
+        lfo.frequency.value = 0.15;
+        lfoGain.gain.value = 0.03;
+        lfo.connect(lfoGain);
+        lfo.start();
+
+        const drone  = osc(55,  'sine',     0.18);  // deep hum
+        const mid    = osc(110, 'sine',     0.07);  // harmonic
+        const shimmer= osc(432, 'sine',     0.015); // subtle shimmer
+        const noise  = osc(220, 'triangle', 0.025); // texture
+
+        // LFO modulates mid gain slightly
+        lfoGain.connect(mid.gain);
+
+        // Simple feedback delay for space
+        const delay = ctx.createDelay(2);
+        delay.delayTime.value = 0.45;
+        const fbGain = ctx.createGain();
+        fbGain.gain.value = 0.35;
+        delay.connect(fbGain);
+        fbGain.connect(delay);
+
+        master = ctx.createGain();
+        master.gain.setValueAtTime(0, ctx.currentTime);
+        master.gain.linearRampToValueAtTime(0.6, ctx.currentTime + 3);
+
+        [drone, mid, shimmer, noise].forEach(n => n.connect(master));
+        drone.connect(delay);
+        delay.connect(master);
+        master.connect(ctx.destination);
+    }
+
+    btn.addEventListener('click', function () {
+        if (!playing) {
+            if (!ctx) buildAudio();
+            else { ctx.resume(); master.gain.linearRampToValueAtTime(0.6, ctx.currentTime + 1); }
+            btn.innerHTML = '<i class="fas fa-volume-up"></i>';
+            btn.classList.add('playing');
+            playing = true;
+        } else {
+            master.gain.linearRampToValueAtTime(0, ctx.currentTime + 1.2);
+            setTimeout(function () { ctx.suspend(); }, 1300);
+            btn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            btn.classList.remove('playing');
+            playing = false;
+        }
+    });
+})();
+
 /* ===== IMPACT COUNTERS ===== */
 (function () {
     const counters = document.querySelectorAll('.impact-num');

@@ -69,6 +69,7 @@
             <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+        <button id="audio-toggle" aria-label="Toggle ambient sound" title="Ambient sound"><i class="fas fa-volume-mute"></i></button>
         <button id="theme-toggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
 </header>
 <!-- navbar ends -->
@@ -78,44 +79,49 @@
 <section class="home" id="home">
     <canvas id="neural-canvas"></canvas>
 
-    <div class="content">
-    <h2>Hi There,<br/> I'm Vivian Jacob <span>Varghese</span></h2>
-    <p>i am into <span class="typing-text"></span></p>
-    <div class="hero-btns">
-      <a href="#about" class="btn"><span>About Me</span>
-        <i class="fas fa-arrow-circle-down"></i>
-      </a>
-      <a href="https://drive.google.com/file/d/18JA2QNSq7pPqydlh9AZPvvHiwmvCljY-/view?usp=sharing" target="_blank" class="btn btn-outline"><span>Resume</span>
-        <i class="fas fa-file-download"></i>
-      </a>
-    </div>
-    <div class="socials">
-        <ul class="social-icons">
-          <li><a class="linkedin" aria-label="LinkedIn" href="https://www.linkedin.com/in/vivian-jacob-varghese/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-          <li><a class="github" aria-label="GitHub" href="https://github.com/engineerviv" target="_blank"><i class="fab fa-github"></i></a></li>
-        </ul>
-      </div>
-    <div class="hero-chips">
-      <span class="hero-chip chip-cyan"><span class="chip-dot"></span>LangGraph</span>
-      <span class="hero-chip chip-purple"><span class="chip-dot"></span>RAG Pipelines</span>
-      <span class="hero-chip chip-cyan"><span class="chip-dot"></span>AWS Bedrock</span>
-      <span class="hero-chip chip-purple"><span class="chip-dot"></span>Kubernetes</span>
-      <span class="hero-chip chip-cyan"><span class="chip-dot"></span>FastAPI</span>
-    </div>
-    </div>
-<div class="image">
-    <img draggable="false" class="tilt" src="./assets/images/hero.jpg" alt="Vivian Jacob Varghese">
-    <div class="hero-badge">
-        <span class="badge-dot"></span>
-        <span>Senior AI Engineer @ EPAM</span>
-    </div>
-</div>
+    <!-- cinematic corner labels -->
+    <span class="hero-corner hero-tl">// Senior AI Engineer @ EPAM</span>
+    <span class="hero-corner hero-tr">// Bengaluru · India</span>
+    <span class="hero-corner hero-bl"><span class="avail-dot-sm"></span>Available for Work</span>
 
-<div class="wave-bottom">
-    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,0 C480,70 960,0 1440,50 L1440,70 L0,70 Z" class="wave-fill-impact"/>
-    </svg>
-</div>
+    <!-- center content -->
+    <div class="hero-center">
+        <h1 class="hero-name">Vivian Jacob<br><span>Varghese</span></h1>
+        <p class="hero-typed-line"><span class="typing-text"></span></p>
+        <div class="hero-chips">
+            <span class="hero-chip chip-cyan"><span class="chip-dot"></span>LangGraph</span>
+            <span class="hero-chip chip-purple"><span class="chip-dot"></span>RAG Pipelines</span>
+            <span class="hero-chip chip-cyan"><span class="chip-dot"></span>AWS Bedrock</span>
+            <span class="hero-chip chip-purple"><span class="chip-dot"></span>Kubernetes</span>
+            <span class="hero-chip chip-cyan"><span class="chip-dot"></span>FastAPI</span>
+        </div>
+        <div class="hero-btns">
+            <a href="#about" class="btn"><span>About Me</span>
+                <i class="fas fa-arrow-circle-down"></i>
+            </a>
+            <a href="https://drive.google.com/file/d/18JA2QNSq7pPqydlh9AZPvvHiwmvCljY-/view?usp=sharing" target="_blank" class="btn btn-outline"><span>Resume</span>
+                <i class="fas fa-file-download"></i>
+            </a>
+        </div>
+        <div class="socials">
+            <ul class="social-icons">
+                <li><a class="linkedin" aria-label="LinkedIn" href="https://www.linkedin.com/in/vivian-jacob-varghese/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                <li><a class="github" aria-label="GitHub" href="https://github.com/engineerviv" target="_blank"><i class="fab fa-github"></i></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- scroll hint -->
+    <div class="hero-scroll-hint">
+        <span>scroll</span>
+        <div class="scroll-line"></div>
+    </div>
+
+    <div class="wave-bottom">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 C480,70 960,0 1440,50 L1440,70 L0,70 Z" class="wave-fill-impact"/>
+        </svg>
+    </div>
 </section>
 <!-- hero section ends -->
 
