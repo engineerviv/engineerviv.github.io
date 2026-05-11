@@ -313,8 +313,8 @@ srtop.reveal('.skills .container .bar', { delay: 400 });
 /* SCROLL EDUCATION */
 srtop.reveal('.education .box', { interval: 200 });
 
-/* SCROLL CERTIFICATIONS */
-srtop.reveal('.certifications .cert-card', { interval: 150 });
+/* SCROLL IMPACT */
+srtop.reveal('.impact .impact-item', { interval: 100, origin: 'bottom', distance: '40px' });
 
 /* SCROLL PROJECTS */
 srtop.reveal('.work .box', { interval: 200 });
@@ -326,3 +326,201 @@ srtop.reveal('.experience .timeline .container', { interval: 400 });
 /* SCROLL CONTACT */
 srtop.reveal('.contact .container', { delay: 400 });
 srtop.reveal('.contact .container .form-group', { delay: 400 });
+
+/* ===== IMPACT COUNTERS ===== */
+(function () {
+    const counters = document.querySelectorAll('.impact-num');
+    if (!counters.length) return;
+    const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting && !entry.target.dataset.counted) {
+                entry.target.dataset.counted = '1';
+                const target = parseInt(entry.target.getAttribute('data-target'));
+                const duration = 1600;
+                const frameRate = 1000 / 60;
+                const totalFrames = Math.round(duration / frameRate);
+                let frame = 0;
+                const counter = setInterval(function () {
+                    frame++;
+                    const progress = frame / totalFrames;
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    entry.target.textContent = Math.floor(eased * target);
+                    if (frame === totalFrames) {
+                        entry.target.textContent = target;
+                        clearInterval(counter);
+                    }
+                }, frameRate);
+            }
+        });
+    }, { threshold: 0.4 });
+    counters.forEach(function (c) { observer.observe(c); });
+})();
+
+/* ===== COPY EMAIL ===== */
+(function () {
+    const btn = document.querySelector('.copy-email-btn');
+    if (!btn) return;
+    const tooltip = document.createElement('span');
+    tooltip.className = 'copy-tooltip';
+    tooltip.textContent = 'Copied!';
+    btn.appendChild(tooltip);
+    btn.addEventListener('click', function () {
+        navigator.clipboard.writeText('vivianjacobvarghese135@gmail.com').then(function () {
+            btn.classList.add('copied');
+            btn.querySelector('i').className = 'fas fa-check';
+            setTimeout(function () {
+                btn.classList.remove('copied');
+                btn.querySelector('i').className = 'fas fa-copy';
+            }, 2000);
+        });
+    });
+})();
+
+/* ===== TERMINAL EASTER EGG ===== */
+(function () {
+    const overlay  = document.getElementById('terminal-overlay');
+    const input    = document.getElementById('terminal-input');
+    const body     = document.getElementById('terminal-body');
+    const trigger  = document.getElementById('terminal-trigger');
+    const closeBtn = document.getElementById('t-close');
+    if (!overlay || !input || !body) return;
+
+    const CMDS = {
+        help: function () {
+            return [
+                '<span class="t-green">Available commands:</span>',
+                '  <span class="t-cmd">whoami</span>      — who is Vivian',
+                '  <span class="t-cmd">skills</span>      — technical skill set',
+                '  <span class="t-cmd">experience</span>  — work history',
+                '  <span class="t-cmd">projects</span>    — notable projects',
+                '  <span class="t-cmd">contact</span>     — get in touch',
+                '  <span class="t-cmd">clear</span>       — clear terminal',
+                '  <span class="t-cmd">exit</span>        — close terminal',
+            ];
+        },
+        whoami: function () {
+            return [
+                '<span class="t-green">Vivian Jacob Varghese</span>',
+                'Senior AI Engineer — Generative AI & LLM Systems',
+                'Currently @ EPAM Systems, Bengaluru',
+                '',
+                'Specializes in RAG pipelines, multi-agent orchestration,',
+                'LangGraph, AWS Bedrock (Claude), and AIOps at scale.',
+                '',
+                '<span class="t-orange">Impact:</span> 100K+ events/day · 65% MTTR reduction · 350+ eng hours saved/day',
+            ];
+        },
+        skills: function () {
+            return [
+                '<span class="t-green">Core Skills:</span>',
+                '  <span class="t-orange">GenAI</span>    → LangGraph, LangChain, AWS Bedrock, RAG Pipelines',
+                '  <span class="t-orange">Cloud</span>    → AWS, GCP, Azure',
+                '  <span class="t-orange">Infra</span>    → Kubernetes (EKS), Docker, Terraform, Ansible',
+                '  <span class="t-orange">Data</span>     → Apache Spark, Kafka, Airflow, SageMaker',
+                '  <span class="t-orange">Observe</span>  → Prometheus, Datadog, ELK Stack',
+                '  <span class="t-orange">Code</span>     → Python, FastAPI, Java, Scala, Bash',
+                '  <span class="t-orange">Databases</span>→ PostgreSQL, MongoDB, MySQL, OpenSearch',
+            ];
+        },
+        experience: function () {
+            return [
+                '<span class="t-green">Work History:</span>',
+                '  <span class="t-orange">2025–Present</span>  Senior AI Engineer, EPAM Systems',
+                '  <span class="t-orange">2024–2025</span>     Software Engineer (MLOps), Tekcog Inc.',
+                '  <span class="t-orange">2021–2022</span>     Consultant, Capgemini',
+                '  <span class="t-orange">2018–2021</span>     Software Engineer, Mindtree Ltd.',
+            ];
+        },
+        projects: function () {
+            return [
+                '<span class="t-green">Notable Projects:</span>',
+                '  → <span class="t-cmd">EEG Seizure Detection</span>',
+                '    ML/Python/MATLAB · SVM + ANN classifiers',
+                '',
+                '  → <span class="t-cmd">FAQ Chatbot for Faculty Support</span>',
+                '    LLMs · NLP · Google Workspace APIs',
+                '',
+                '  → <span class="t-cmd">Cloud Monitoring App</span>',
+                '    AWS · Docker · Kubernetes · CloudWatch',
+            ];
+        },
+        contact: function () {
+            return [
+                '<span class="t-green">Contact:</span>',
+                '  Email    vivianjacobvarghese135@gmail.com',
+                '  GitHub   github.com/engineerviv',
+                '  LinkedIn linkedin.com/in/vivian-jacob-varghese',
+                '  Location Bengaluru, India',
+            ];
+        },
+        clear: function () { body.innerHTML = ''; return []; },
+        exit:  function () { closeTerminal(); return []; },
+        quit:  function () { closeTerminal(); return []; },
+    };
+
+    function addLine(html) {
+        var div = document.createElement('div');
+        div.className = 't-line';
+        div.innerHTML = html;
+        body.appendChild(div);
+        body.scrollTop = body.scrollHeight;
+    }
+
+    function openTerminal() {
+        overlay.classList.add('open');
+        setTimeout(function () { input.focus(); }, 80);
+    }
+
+    function closeTerminal() {
+        overlay.classList.remove('open');
+        input.value = '';
+    }
+
+    if (trigger) trigger.addEventListener('click', openTerminal);
+    if (closeBtn) closeBtn.addEventListener('click', closeTerminal);
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) closeTerminal(); });
+
+    document.addEventListener('keydown', function (e) {
+        if ((e.key === '`' || e.key === '~') && !overlay.classList.contains('open')) {
+            e.preventDefault();
+            openTerminal();
+        } else if (e.key === 'Escape' && overlay.classList.contains('open')) {
+            closeTerminal();
+        }
+    });
+
+    var history = [];
+    var histIdx = -1;
+
+    input.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+            var raw = input.value;
+            var cmd = raw.trim().toLowerCase();
+            addLine('<span class="t-prompt-inline">vivian@portfolio:~$</span> ' + raw);
+            input.value = '';
+            histIdx = -1;
+            if (!cmd) return;
+            history.unshift(cmd);
+            if (CMDS[cmd]) {
+                CMDS[cmd]().forEach(addLine);
+            } else if (cmd.startsWith('echo ')) {
+                addLine(raw.slice(5));
+            } else {
+                addLine('<span class="t-red">command not found: ' + cmd + '</span> — type <span class="t-cmd">help</span>');
+            }
+            addLine('&nbsp;');
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            if (histIdx < history.length - 1) { histIdx++; input.value = history[histIdx]; }
+        } else if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            if (histIdx > 0) { histIdx--; input.value = history[histIdx]; }
+            else { histIdx = -1; input.value = ''; }
+        } else if (e.key === 'Tab') {
+            e.preventDefault();
+            var partial = input.value.toLowerCase();
+            var match = Object.keys(CMDS).find(function (k) { return k.startsWith(partial) && k !== partial; });
+            if (match) input.value = match;
+        }
+    });
+})();
